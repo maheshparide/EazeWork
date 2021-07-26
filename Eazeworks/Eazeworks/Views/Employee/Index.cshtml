@@ -1,0 +1,165 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<div style="align-content:center;font-size:18px">
+    <label style="align-content:center;font-size:18px">Report was last synced from Eazework on.  </label><b style="align-content:center;font-size:18px;margin-left:2px">@ViewBag.lastSyncedDate</b>
+</div>
+<hr />
+<div style="align-content:center;font-size:18px">
+
+
+    <label>Click on Sync to update records from Eazework portal.</label><a asp-action="SyncData" asp-controller="Employee" style="margin-left:5px;"><button style="border:solid;border-width:thin">Sync</button></a>
+</div>
+<hr />
+<label><b>Select fields and generate report :</b></label>
+<div>
+    <form asp-action="EmployeesList" asp-controller="Employee">
+        @*@foreach (var prop in ViewBag.CheckBoxProps)
+            {*@
+        <div>
+            <span>
+                <input id="EmployeeCode" type="checkbox" name=EmployeeCode value=EmployeeCode checked="checked" />
+                <label for="EmployeeCode">Employee Code</label>
+            </span>
+            <span class="col-sm-2" style="margin-left:50px">
+                <input id="EmployeeName" type="checkbox" name=EmployeeName value=EmployeeName checked="checked" />
+                <label for="EmployeeName">Employee Name</label>
+            </span>
+            <span class="col-sm-4" style="margin-left:50px">
+                <input id="ProjectName" type="checkbox" name=ProjectName value=ProjectName checked="checked" />
+                <label for="ProjectName">Project Name</label>
+            </span>
+            <span class="col-sm-6" style="margin-left:50px">
+                <input id="Designation" type="checkbox" name=Designation value=Designation checked="checked" />
+                <label for="Designation">Designation</label>
+            </span>
+            <span class="col-sm-8" style="margin-left:50px">
+                <input id="Department" type="checkbox" name=Department value=Department checked="checked" />
+                <label for="Department">Department</label>
+            </span>
+        </div>
+        <div>
+            <span>
+                <input id="SubDepartment" type="checkbox" name=SubDepartment value=SubDepartment checked="checked" />
+                <label for="SubDepartment">Sub Department</label>
+            </span>
+            <span class="col-sm-2" style="margin-left:45px">
+                <input id="WorkLocation" type="checkbox" name=WorkLocation value=WorkLocation checked="checked" />
+                <label for="WorkLocation">Work Location</label>
+            </span>
+            <span class="col-sm-4" style="margin-left:65px">
+                <input id="Level" type="checkbox" name=Level value=Level checked="checked" />
+                <label for="Level">Level</label>
+            </span>
+            <span class="col-sm-7" style="margin-left:110px">
+                <input id="Email" type="checkbox" name=Email value=Email checked="checked" />
+                <label for="Email">Email</label>
+            </span>
+            <span class="col-sm-9" style="margin-left:95px">
+                <input id="ManagerEmail" type="checkbox" name=ManagerEmail value=ManagerEmail checked="checked" />
+                <label for="ManagerEmail">Manager Email</label>
+            </span>
+        </div>
+        <div>
+            <span>
+                <input id="CountryCode" type="checkbox" name=CountryCode value=CountryCode checked="checked" />
+                <label for="CountryCode">Country Code</label>
+            </span>
+            <span class="col-sm-2" style="margin-left:65px">
+                <input id="Mobile" type="checkbox" name=Mobile value=Mobile checked="checked" />
+                <label for="Mobile">Mobile</label>
+            </span>
+            <span class="col-sm-4" style="margin-left:116px">
+                <input id="DateOfJoining" type="checkbox" name=DateOfJoining value=DateOfJoining checked="checked" />
+                <label for="DateOfJoining">Date Of Joining</label>
+            </span>
+            <span class="col-sm-6" style="margin-left:37px">
+                <input id="Gender" type="checkbox" name=Gender value=Gender checked="checked" />
+                <label for="Gender">Gender</label>
+
+            </span>
+            <span class="col-sm-8" style="margin-left:83px">
+                <input id="EmployeeType" type="checkbox" name=EmployeeType value=EmployeeType checked="checked" />
+                <label for="EmployeeType">Employee Type</label>
+            </span>
+        </div>
+        <div>
+            <span >
+                <input id="EmploymentStatus" type="checkbox" name=EmploymentStatus value=EmploymentStatus checked="checked" />
+                <label for="EmploymentStatus">Employment Status</label>
+            </span>
+            <span class="col-sm-2" style="margin-left:25px">
+                <input id="DeskNo" type="checkbox" name=DeskNo value=DeskNo checked="checked" />
+                <label for="DeskNo">Desk No</label>
+            </span>
+            <span class="col-sm-4" style="margin-left:107px">
+
+                <input id="PrevExp" type="checkbox" name=PrevExp value=PrevExp checked="checked" />
+                <label for="PrevExp">Prev Exp</label>
+            </span>
+            <span class="col-sm-6" style="margin-left:87px">
+                <input id="CurrentExperience" type="checkbox" name=CurrentExperience value=CurrentExperience checked="checked" />
+                <label for="CurrentExperience">Current Experience</label>
+            </span>
+            <span class="col-sm-8" style="margin-left:1px">
+                <input id="TotalExperience" type="checkbox" name=TotalExperience value=TotalExperience checked="checked" />
+                <label for="TotalExperience">Total Experience</label>
+            </span>
+
+
+        </div>
+        <div>
+            <span>
+                <input id="Billing" type="checkbox" name=Billing value=Billing checked="checked" />
+                <label for="Billing">Billing</label>
+            </span>
+            <span class="col-sm-2" style="margin-left:118px">
+                <input id="CoreSkills" type="checkbox" name=CoreSkills value=CoreSkills checked="checked" />
+                <label for="CoreSkills">Core Skills</label>
+            </span>
+            <span class="col-sm-4" style="margin-left:95px">
+                <input id="MinorSkills" type="checkbox" name=MinorSkills value=MinorSkills checked="checked" />
+                <label for="MinorSkills">Minor Skills</label>
+            </span>
+            <span class="col-sm-6" style="margin-left:65px">
+                <input id="Certifications" type="checkbox" name=Certifications value=Certifications checked="checked" />
+                <label for="Certifications">Certifications</label>
+            </span>
+            <span class="col-sm-8"style="margin-left:43px">
+                <input id="Customer" type="checkbox" name=Customer value=Customer checked="checked" />
+                <label for="Customer">Customer</label>
+            </span>
+        </div>
+
+
+
+
+        @*}*@
+        <div style="align-content:center;text-align:center;margin-right:50px">
+            <input type="submit" style="border:solid;border-width:thin" value="Generate Report" />
+        </div>
+    </form>
+</div>
+@if (TempData["Message"] != null)
+{
+    <script type="text/javascript">
+            window.onload = function () {
+                alert("@TempData["Message"]");
+            };
+    </script>
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

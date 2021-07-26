@@ -1,0 +1,362 @@
+﻿@model IEnumerable<Eazeworks.Models.EmployeeVO>
+
+@{
+    ViewData["Title"] = "Motivity Employees";
+}
+
+<h1>Motivity Employees</h1>
+@*<h3>Select Properties</h3>*@
+@*<div >
+        <form asp-action="UserSelectedProperties" asp-controller="Employee" method="post">
+        @foreach (var prop in ViewBag.CheckBoxProps)
+        {
+                    <input id="@prop" type="checkbox" name=@prop value=@prop checked="checked" />
+                    <label for="@prop">@prop</label>
+
+        }
+            <input type="submit" value="Apply" />
+        </form>
+    </div>*@
+<br />
+
+<a asp-action="Export" asp-controller="Employee" class="float-right" style="margin-bottom: 5px"><button>Export To Excel</button></a>
+
+<div style="width:1200px;height:400px;overflow:auto">
+    <table  rules="rows" style="width:500px;height:200px;overflow:auto;">
+        @*<div >
+            <table>*@
+                <thead>
+                    <tr>
+                        @*<th>
+                            @Html.DisplayNameFor(model => model.EmpDetId)
+                        </th>*@
+                        @foreach (var props in ViewBag.UserSelectedProperties)
+                        {
+                            if (props == "EmployeeCode")
+                            {
+                                <th>
+                                    Employee Code
+                                </th>
+                            }
+                            if (props == "EmployeeName")
+                            {
+                                <th>
+                                    Employee Name
+                                </th>
+                            }
+                            if (props == "ProjectName")
+                            {
+                                <th>
+                                    Project Name
+                                </th>
+                            }
+                            if (props == "Designation")
+                            {
+                                <th>
+                                    Designation
+                                </th>
+                            }
+                            if (props == "Department")
+                            {
+                                <th>
+                                    Department
+                                </th>
+                            }
+                            if (props == "SubDepartment")
+                            {
+                                <th>
+                                    Sub Department
+                                </th>
+                            }
+                            if (props == "WorkLocation")
+                            {
+                                <th>
+                                    Work Location
+                                </th>
+                            }
+                            if (props == "Level")
+                            {
+                                <th>
+                                    Level
+                                </th>
+                            }
+                            if (props == "Email")
+                            {
+                                <th>
+                                    Email
+                                </th>
+                            }
+                            if (props == "ManagerEmail")
+                            {
+                                <th>
+                                    Manager Email
+                                </th>
+                            }
+                            if (props == "CountryCode")
+                            {
+                                <th>
+                                    Country Code
+                                </th>
+                            }
+                            if (props == "Mobile")
+                            {
+                                <th>
+                                    Mobile
+                                </th>
+                            }
+                            if (props == "DateOfJoining")
+                            {
+                                <th>
+                                    Date Of Joining
+                                </th>
+                            }
+                            if (props == "Gender")
+                            {
+                                <th>
+                                    Gender
+                                </th>
+                            }
+                            if (props == "EmployeeType")
+                            {
+                                <th>
+                                    Employee Type
+                                </th>
+                            }
+                            if (props == "EmploymentStatus")
+                            {
+                                <th>
+                                    Employment Status
+                                </th>
+                            }
+                            if (props == "DeskNo")
+                            {
+                                <th>
+                                    Desk No
+                                </th>
+                            }
+                            if (props == "PrevExp")
+                            {
+                                <th>
+                                    Previous Experience
+                                </th>
+                            }
+                            if (props == "CurrentExperience")
+                            {
+                                <th>
+                                    Current Experience
+                                </th>
+                            }
+                            if (props == "TotalExperience")
+                            {
+                                <th>
+                                    Total Experience
+                                </th>
+                            }
+                            if (props == "Billing")
+                            {
+                                <th>
+                                    Billing
+                                </th>
+                            }
+                            if (props == "CoreSkills")
+                            {
+                                <th>
+                                    Core Skills (>=7/10 rating)
+                                </th>
+                            }
+                            if (props == "MinorSkills")
+                            {
+                                <th>
+                              @Html.Label("Minor Skills ( <6/10 rating)")
+                        
+                                </th>
+                            }
+                            if (props == "Certifications")
+                            {
+                                <th>
+                                    Certifications (include certification org)
+                                </th>
+                            }
+                            if (props == "Customer")
+                            {
+                                <th>
+                                    Customer
+                                </th>
+                            }
+                        }
+                        @*<th></th>*@
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+
+
+                        <tr>
+                            @*<td>
+                                @Html.DisplayFor(modelItem => item.EmpDetId)
+                            </td>*@
+                            @foreach (var props in ViewBag.UserSelectedProperties)
+                            {
+                                if (props == "EmployeeCode")
+                                {
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.EmployeeCode)
+                                    </td>
+                                }
+                                if (props == "EmployeeName")
+                                {
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.EmployeeName)
+                                    </td>
+                                }
+                                if (props == "ProjectName")
+                                {
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.ProjectName)
+                                    </td>
+                                }
+                                if (props == "Designation")
+                                {
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Designation)
+                                    </td>
+                                }
+                                if (props == "Department")
+                                {
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Department)
+                                    </td>
+                                }
+                                if (props == "SubDepartment")
+                                {
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.SubDepartment)
+                                    </td>
+                                }
+                                if (props == "WorkLocation")
+                                {
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.WorkLocation)
+                                    </td>
+                                }
+                                if (props == "Level")
+                                {
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Level)
+                                    </td>
+                                }
+                                if (props == "Email")
+                                {
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Email)
+                                    </td>
+                                }
+                                if (props == "ManagerEmail")
+                                {
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.ManagerEmail)
+                                    </td>
+                                }
+                                if (props == "CountryCode")
+                                {
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.CountryCode)
+                                    </td>
+                                }
+                                if (props == "Mobile")
+                                {
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Mobile)
+                                    </td>
+                                }
+                                if (props == "DateOfJoining")
+                                {
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.DateOfJoining)
+                                    </td>
+                                }
+                                if (props == "Gender")
+                                {
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Gender)
+                                    </td>
+                                }
+                                if (props == "EmployeeType")
+                                {
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.EmployeeType)
+                                    </td>
+                                }
+                                if (props == "EmploymentStatus")
+                                {
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.EmploymentStatus)
+                                    </td>
+                                }
+                                if (props == "DeskNo")
+                                {
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.DeskNo)
+                                    </td>
+                                }
+                                if (props == "PrevExp")
+                                {
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.PrevExp)
+                                    </td>
+                                }
+                                if (props == "CurrentExperience")
+                                {
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.CurrentExperience)
+                                    </td>
+                                }
+                                if (props == "TotalExperience")
+                                {
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.TotalExperience)
+                                    </td>
+                                }
+                                if (props == "Billing")
+                                {
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Billing)
+                                    </td>
+                                }
+                                if (props == "CoreSkills")
+                                {
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.CoreSkills)
+                                    </td>
+                                }
+                                if (props == "MinorSkills")
+                                {
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.MinorSkills)
+                                    </td>
+                                }
+                                if (props == "Certifications")
+                                {
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Certifications)
+                                    </td>
+                                }
+                                if (props == "Customer")
+                                {
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Customer)
+                                    </td>
+                                }
+                            }
+                            @*<td>
+                                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                            </td>*@
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
